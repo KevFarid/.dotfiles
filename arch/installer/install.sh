@@ -8,9 +8,9 @@ function exe {
 }
 
 exe hello-world
-exe fonts
-exe symlinks
-exe programs
+# exe fonts
+# exe symlinks
+# exe programs
 exe windows-managers
 exe envs
 exe theme

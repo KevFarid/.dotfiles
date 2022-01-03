@@ -12,7 +12,7 @@ from .path import qtile_path
 
 
 def load_theme():
-    theme = "material-ocean"
+    theme = "rose-pine"
 
     config = path.join(qtile_path, "config.json")
     if path.isfile(config):
@@ -21,7 +21,6 @@ def load_theme():
     else:
         with open(config, "w") as f:
             f.write(f'{{"theme": "{theme}"}}\n')
-
 
     theme_file = path.join(qtile_path, "themes", f'{theme}.json')
     if not path.isfile(theme_file):

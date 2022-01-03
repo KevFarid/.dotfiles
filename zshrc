@@ -11,7 +11,7 @@ ZSH_THEME="spaceship"
 
 
 # Brew
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 
 # Which plugins would you like to load?
@@ -79,7 +79,6 @@ function openCode {
 # fnm
 export PATH=/home/kevin/.fnm:$PATH
 eval "`fnm env`"
-
 
 # fnm
 export PATH=/home/kevin/.fnm:$PATH

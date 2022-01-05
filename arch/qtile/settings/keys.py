@@ -37,9 +37,9 @@ keys = [
         ([mod], "r", lazy.spawncmd()),
         # ------------ App Configs ------------
         # Menu
-        ([mod], "space", lazy.spawn("rofi -show drun")),
+        ([mod], "space", lazy.spawn("rofi -show drun -show-icons")),
         # Window Nav
-        ([mod, "shift"], "space", lazy.spawn("rofi -show")),
+        ([mod, "shift"], "space", lazy.spawn("rofi -show -show-icons")),
         # Browser
         ([mod], "b", lazy.spawn("google-chrome-stable --force-dark-mode")),
         # File Explorer
@@ -50,8 +50,8 @@ keys = [
         ([mod], "r", lazy.spawn("redshift -O 2400")),
         ([mod, "shift"], "r", lazy.spawn("redshift -x")),
         # Screenshot
-        ([mod], "s", lazy.spawn("scrot")),
-        ([mod, "shift"], "s", lazy.spawn("scrot -s")),
+        ([mod], "s", lazy.spawn("scrot Pictures/screenshots/")),
+        ([mod, "shift"], "s", lazy.spawn("scrot -s -e 'xclip -selection clipboard -t \"image/png\" < $f' Pictures/screenshots/")),
         # ------------ Hardware Configs ------------
         # Volume
         (

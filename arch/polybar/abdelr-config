@@ -1,0 +1,301 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+background = #191724
+foreground = #e0def4
+
+color0 = ${xrdb:color0}
+color1 = ${xrdb:color1}
+color2 = ${xrdb:color2}
+color3 = ${xrdb:color3}
+color4 = ${xrdb:color4}
+color5 = ${xrdb:color5}
+color6 = ${xrdb:color6}
+color7 = ${xrdb:color7}
+color8 = ${xrdb:color8}
+color9 = ${xrdb:color9}
+color10 = ${xrdb:color10}
+color11 = ${xrdb:color11}
+color12 = ${xrdb:color12}
+color13 = ${xrdb:color13}
+color14 = ${xrdb:color14}
+color15 = ${xrdb:color15}
+dark-light = #272A2B
+active-light = #313435
+
+[bar/external]
+tray-position = right
+tray-padding =5
+monitor = VGA-1
+width =  98%
+height = 26
+padding-left =1
+padding-right =0
+background = ${colors.background}
+foreground = ${colors.foreground}
+bottom = false
+border-top-size = 7
+border-bottom-size = 7
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
+offset-x = 1%
+offset-y = 0.5%
+fixed-center = true
+line-size = 3
+
+font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=13;3
+font-1 = JetBrainsMono Nerd Font:size=18;5
+font-2 = Material Design Icons:style=Bold:size=13;3
+font-3 = unifont:fontformat=truetype:size=13:antialias=true;
+
+modules-left = round-left bspwm round-right
+modules-center =
+modules-right = round-left cpu round-right  mem
+
+[bar/main]
+tray-position = right
+tray-padding =5
+monitor = DVI-D-1
+width =  98%
+height = 26
+padding-left =1
+padding-right =0
+background = ${colors.background}
+foreground = ${colors.foreground}
+bottom = false
+border-top-size = 7
+border-bottom-size = 7
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
+offset-x = 1%
+offset-y = 0.5%
+fixed-center = true
+line-size = 3
+
+wm-restack = bspwm
+
+modules-left = powermenu round-left bspwm round-right
+modules-center =
+modules-right = round-left spotify round-right temperature alsa round-left time round-right
+
+font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=13;3
+font-1 = JetBrainsMono Nerd Font:size=18;5
+font-2 = Material Design Icons:style=Bold:size=13;3
+font-3 = unifont:fontformat=truetype:size=13:antialias=true;
+
+[bar/only]
+tray-position = right
+tray-padding =5
+width =  98%
+height = 26
+padding-left =1
+padding-right =0
+background = ${colors.background}
+foreground = ${colors.foreground}
+bottom = false
+border-top-size = 7
+border-bottom-size = 7
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
+offset-x = 1%
+offset-y = 0.5%
+fixed-center = true
+line-size = 3
+
+wm-restack = bspwm
+
+modules-left = powermenu round-left bspwm round-right
+modules-center =
+modules-right =     round-left spotify round-right temperature alsa round-left cpu round-right mem round-left time round-right
+
+font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=13;3
+font-1 = JetBrainsMono Nerd Font:size=18;5
+font-2 = Material Design Icons:style=Bold:size=13;3
+font-3 = unifont:fontformat=truetype:size=13:antialias=true;
+
+[module/round-left]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #2a2837
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format = <label>
+exec = python ~/.config/polybar/scripts/spotify.py -f '{song} - {artist}' -t 20
+format-underline = #31748f
+click-left = playerctl --player=spotify play-pause
+format-foreground = #31748f
+format-background = #2a2837
+
+[module/round-right]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #2a2837
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 70
+
+
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+format-padding = 0
+label = %temperature-c%
+label-warn = %temperature-c%
+ramp-0 =  "   "
+ramp-foreground = #a4ebf3
+label-padding-right = 1
+
+[module/bspwm]
+type = internal/bspwm
+
+pin-workspaces = true
+inline-mode = true
+enable-click = true
+enable-scroll = true
+reverse-scroll = false
+
+format = <label-state>
+
+ws-icon-0 = 1;%{F#f6c177}
+ws-icon-1 = 2;%{F#9ccfd8}
+ws-icon-2 = 3;%{F#eb6f92}
+ws-icon-3 = 4;%{F#3e8fb0}
+ws-icon-4 = 5;%{F#A3BE8C}
+ws-icon-5 = 6;%{F#31748f}
+ws-icon-6 = 7;%{F#E0DEF4}
+ws-icon-7 = 8;%{F#EBBCBA}
+ws-icon-8 = 9;%{F#c4a7e7}
+ws-icon-9 = 0;%{F#9ccfd8}ﭮ
+
+label-separator = ""
+label-separator-background = #2a2837
+
+label-focused = %icon%
+label-focused-foreground = ${colors.foreground}
+label-focused-underline =  #e0def4
+label-focused-padding = 1
+label-focused-background = #2a2837
+
+label-occupied =  %icon%
+label-occupied-foreground = #646870
+label-occupied-background = #2a2837
+label-occupied-padding = 1
+
+label-empty = %icon%
+label-empty-foreground =   ${colors.foreground}
+label-empty-padding = 1
+label-empty-background = #2a2837
+
+
+label-urgent = %icon%
+label-urgent-foreground = #88C0D0
+label-urgent-background = #2a2837
+label-urgent-padding = 1
+
+[module/alsa]
+type = internal/alsa
+format-volume = <label-volume> <bar-volume>
+label-volume = " "
+label-volume-foreground = ${colors.foreground}
+
+format-muted-foreground = ${colors.foreground}
+label-muted = ﱝ
+
+format-muted-padding = 1
+format-muted-background = #2a2837
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #9ccfd8
+bar-volume-foreground-1 = #9ccfd8
+bar-volume-foreground-2 = #9ccfd8
+bar-volume-foreground-3 = #9ccfd8
+bar-volume-foreground-4 = #9ccfd8
+bar-volume-foreground-5 = #9ccfd8
+bar-volume-foreground-6 = #9ccfd8
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-foreground = #9ccfd8
+bar-volume-indicator-font = 2
+bar-volume-fill = -
+bar-volume-fill-foreground = #9ccfd8
+bar-volume-fill-font = 2
+bar-volume-empty = -
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground}
+format-volume-padding = 1
+
+[module/time]
+type = internal/date
+interval = 60
+format = <label>
+format-background = #2a2837
+date = %{F#888e96} %I:%M %p%{F-}
+time-alt = %{F#61afef} %a, %b %d%{F-}
+
+label = %date%%time%
+
+
+[module/mem]
+type = custom/script
+exec = free -m | sed -n 's/^Mem:\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p'
+format = <label>
+format-prefix = " ﬙ "
+label = %output% MB
+label-padding = 1
+format-prefix-foreground = #d19a66
+
+
+[module/powermenu]
+type = custom/text
+content =" "
+content-padding =1
+click-left = rofi -show &
+content-foreground =  #61afef
+
+[module/volume]
+type = custom/script
+exec = amixer get Master | awk '$0~/%/{print $4}' | tr -d '[]'
+format = <label>
+internal = 5.0
+label = %output% 
+label-foreground = #BF616A
+label-padding = 1
+
+[module/cpu]
+type = internal/cpu
+interval = 2.5
+
+format-prefix = "  " 
+format = <label> 
+
+label = CPU %percentage%%
+
+format-background = #2a2837
+format-foreground = #989cff
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...
+
+
+

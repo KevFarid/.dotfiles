@@ -1,0 +1,11 @@
+[module/cpu]
+type = internal/cpu
+interval = 2.5
+
+format-prefix = "  "
+format = <label>
+
+label = CPU %percentage%%
+
+format-background = #2a2837
+format-foreground = #989cff

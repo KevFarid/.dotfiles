@@ -1,0 +1,124 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+background = #191724
+foreground = #e0def4
+
+color0 = ${xrdb:color0}
+color1 = ${xrdb:color1}
+color2 = ${xrdb:color2}
+color3 = ${xrdb:color3}
+color4 = ${xrdb:color4}
+color5 = ${xrdb:color5}
+color6 = ${xrdb:color6}
+color7 = ${xrdb:color7}
+color8 = ${xrdb:color8}
+color9 = ${xrdb:color9}
+color10 = ${xrdb:color10}
+color11 = ${xrdb:color11}
+color12 = ${xrdb:color12}
+color13 = ${xrdb:color13}
+color14 = ${xrdb:color14}
+color15 = ${xrdb:color15}
+dark-light = #272A2B
+active-light = #313435
+
+
+include-file = ~/.config/polybar/modules/decorations
+
+
+[bar/left]
+width = 26%
+height = 30
+monitor = ${env:MONITOR:}
+padding-left = 1
+padding-right =0
+background = ${colors.background}
+foreground = ${colors.foreground}
+bottom = false
+border-top-size = 2
+border-bottom-size = 2
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
+offset-x=8
+offset-y=5
+fixed-center = true
+line-size = 2
+wm-restack = bspwm
+modules-center = round-left bspwm round-right
+font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=13;3
+font-1 = JetBrainsMono Nerd Font:size=18;5
+font-2 = Material Design Icons:style=Bold:size=13;3
+font-3 = unifont:fontformat=truetype:size=13:antialias=true;
+
+
+
+[bar/middle]
+width=25%
+height=30
+offset-x=37.5%
+offset-y=5
+bottom = false
+border-top-size = 2
+border-bottom-size = 2
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
+background=${colors.background}
+foreground=${colors.foreground}
+wm-name="polybar-middle"
+font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=13;3
+font-1 = JetBrainsMono Nerd Font:size=18;5
+line-size=2
+padding=2
+modules-center=music
+
+
+[bar/right]
+width=22%:+8
+height=30
+offset-x=78%:-8
+offset-y=5
+background=${colors.background}
+foreground=${colors.foreground}
+padding=2
+font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=13;3
+font-1 = JetBrainsMono Nerd Font:size=18;5
+font-2 = Material Design Icons:style=Bold:size=13;3
+font-3 = unifont:fontformat=truetype:size=13:antialias=true;
+font-4= UbuntuMono Nerd Font:style=2048-em:size=12;3"
+module-margin-right=1
+modules-left= time volume
+tray-position=right
+tray-offset-x=-8
+tray-background=#2a2837
+bottom = false
+border-top-size = 2
+border-bottom-size = 2
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
+
+; -------------------------------
+; Modules
+; -------------------------------
+
+include-file = ~/.config/polybar/modules/time
+include-file = ~/.config/polybar/modules/alsa
+include-file = ~/.config/polybar/modules/bspwm
+include-file = ~/.config/polybar/modules/volume
+include-file = ~/.config/polybar/modules/music

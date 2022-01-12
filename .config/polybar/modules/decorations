@@ -1,0 +1,13 @@
+; -------------------------------
+; Decoractions
+; -------------------------------
+
+[module/round-left]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #2a2837
+
+[module/round-right]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #2a2837

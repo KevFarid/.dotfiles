@@ -1,0 +1,31 @@
+[module/alsa]
+type = internal/alsa
+format-volume = <label-volume> <bar-volume>
+label-volume = " "
+label-volume-foreground = ${colors.foreground}
+
+format-muted-foreground = ${colors.foreground}
+label-muted = ﱝ
+
+format-muted-padding = 1
+format-muted-background = #2a2837
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #9ccfd8
+bar-volume-foreground-1 = #9ccfd8
+bar-volume-foreground-2 = #9ccfd8
+bar-volume-foreground-3 = #9ccfd8
+bar-volume-foreground-4 = #9ccfd8
+bar-volume-foreground-5 = #9ccfd8
+bar-volume-foreground-6 = #9ccfd8
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-foreground = #9ccfd8
+bar-volume-indicator-font = 2
+bar-volume-fill = -
+bar-volume-fill-foreground = #9ccfd8
+bar-volume-fill-font = 2
+bar-volume-empty = -
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground}
+format-volume-padding = 1

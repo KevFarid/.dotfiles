@@ -1,0 +1,47 @@
+[module/bspwm]
+type = internal/bspwm
+
+pin-workspaces = true
+inline-mode = true
+enable-click = true
+enable-scroll = true
+reverse-scroll = false
+
+format = <label-state>
+
+ws-icon-0 = 1;%{F#f6c177}
+ws-icon-1 = 2;%{F#9ccfd8}
+ws-icon-2 = 3;%{F#eb6f92}
+ws-icon-3 = 4;%{F#3e8fb0}
+ws-icon-4 = 5;%{F#A3BE8C}
+ws-icon-5 = 6;%{F#31748f}
+ws-icon-6 = 7;%{F#E0DEF4}
+ws-icon-7 = 8;%{F#EBBCBA}
+ws-icon-8 = 9;%{F#c4a7e7}
+ws-icon-9 = 0;%{F#9ccfd8}ﭮ
+
+label-separator = ""
+label-separator-background = #2a2837
+
+label-focused = %icon%
+label-focused-foreground = ${colors.foreground}
+label-focused-underline =  #e0def4
+label-focused-padding = 1
+label-focused-background = #2a2837
+
+label-occupied =  %icon%
+label-occupied-foreground = #646870
+label-occupied-background = #2a2837
+label-occupied-padding = 1
+
+label-empty = %icon%
+label-empty-foreground =   ${colors.foreground}
+label-empty-padding = 1
+label-empty-background = #2a2837
+
+label-urgent = %icon%
+label-urgent-foreground = #88C0D0
+label-urgent-background = #2a2837
+label-urgent-padding = 1
+
+

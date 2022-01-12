@@ -1,0 +1,8 @@
+[module/updates]
+type = custom/script
+interval = 600
+format-prefix = " "
+format = <label>
+exec = ~/.config/polybar/scripts/updates.sh
+format-foreground = #eb6f92
+format-background = #2a2837

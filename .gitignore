@@ -1,4 +1,7 @@
 .netrwhist
+__pycache__
+.mypy_cache
 .DS_Store
 node_modules
 lspServers/node_modules/
+*.log

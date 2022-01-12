@@ -80,6 +80,4 @@ function openCode {
 export PATH=/home/kevin/.fnm:$PATH
 eval "`fnm env`"
 
-# fnm
-export PATH=/home/kevin/.fnm:$PATH
-eval "`fnm env`"
+eval "$(fnm env --use-on-cd)"

@@ -1,0 +1,8 @@
+[module/mem]
+type = custom/script
+exec = free -m | sed -n 's/^Mem:\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p'
+format = <label>
+format-prefix = " ﬙ "
+label = %output% MB
+label-padding = 1
+format-prefix-foreground = #d19a66

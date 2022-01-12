@@ -1,0 +1,6 @@
+[module/music]
+type = custom/script
+tail = true
+format-prefix=""
+format=<label>
+exec=~/.scripts/music.py

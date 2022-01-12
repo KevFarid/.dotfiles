@@ -1,0 +1,8 @@
+[module/time]
+type = internal/date
+interval = 60
+format = <label>
+date = %{F#888e96} %I:%M %p%{F-}
+time-alt = %{F#61afef} %a, %b %d%{F-}
+
+label = %date%%time%

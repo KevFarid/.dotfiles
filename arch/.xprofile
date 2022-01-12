@@ -1,5 +1,10 @@
 #Ajust Monitors
-xrandr --output DVI-D-1 --primary --mode 1680x1050 --pos 0x0 --output VGA-1 --mode 1280x1024 --pos 1680x0
+
+if [[ $(xrandr -q | grep 'DVI-D-1 connected') ]]; then
+  xrandr --output DVI-D-1 --primary --mode 1680x1050 --pos 0x0 --output VGA-1 --mode 1280x1024 --pos 1680x0
+else
+  xrandr --output DVI-D-1 --primary --mode 1680x1050 --pos 0x0
+fi
 
 # start picom
 picom &
